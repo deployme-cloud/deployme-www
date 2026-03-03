@@ -76,7 +76,7 @@ export const translations = {
       "SDK / Terraform / Ansible / CAPI",
       "Full documentation",
       "20h/month free hosted credits",
-      "Community support (Discord)",
+      "Community support",
     ],
     "pricing.pro.title": "Pro",
     "pricing.pro.price": "From €49/mo",
@@ -129,7 +129,6 @@ export const translations = {
     "contact.form.email": "Email",
     "contact.form.message": "Message",
     "contact.form.submit": "Send Message",
-    "contact.discord": "Join our Discord",
 
     // Training
     "training.title": "Training",
@@ -228,7 +227,7 @@ export const translations = {
       "SDK / Terraform / Ansible / CAPI",
       "Documentation complète",
       "20h/mois de crédits hébergés gratuits",
-      "Support communautaire (Discord)",
+      "Support communautaire",
     ],
     "pricing.pro.title": "Pro",
     "pricing.pro.price": "À partir de 49€/mois",
@@ -282,7 +281,6 @@ export const translations = {
     "contact.form.email": "Email",
     "contact.form.message": "Message",
     "contact.form.submit": "Envoyer le Message",
-    "contact.discord": "Rejoignez notre Discord",
 
     // Training
     "training.title": "Formation",
