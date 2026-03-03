@@ -1,0 +1,38 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const roadmapItems = t("about.roadmap.items");
+---
+
+<BaseLayout title={t("about.title") as string}>
+  <section class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-bold text-foreground">{t("about.title")}</h1>
+        <p class="mt-4 text-lg text-muted-foreground">{t("about.subtitle")}</p>
+      </div>
+
+      <div class="mt-16 mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-foreground">{t("about.vision.title")}</h2>
+        <p class="mt-4 text-muted-foreground leading-relaxed">{t("about.vision.desc")}</p>
+      </div>
+
+      <div class="mt-16 mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold text-foreground">{t("about.roadmap.title")}</h2>
+        <ul class="mt-6 space-y-4">
+          {Array.isArray(roadmapItems) &&
+            (roadmapItems as string[]).map((item: string) => (
+              <li class="flex items-start gap-3 rounded-lg border border-border bg-card p-4 shadow-sm">
+                <span class="mt-0.5 text-primary">&#9654;</span>
+                <span class="text-sm text-muted-foreground">{item}</span>
+              </li>
+            ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

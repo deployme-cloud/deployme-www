@@ -1,0 +1,48 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const features = [
+  { title: t("home.features.simple.title"), desc: t("home.features.simple.desc") },
+  { title: t("home.features.secure.title"), desc: t("home.features.secure.desc") },
+  { title: t("home.features.flexible.title"), desc: t("home.features.flexible.desc") },
+  { title: t("home.features.open.title"), desc: t("home.features.open.desc") },
+];
+---
+
+<BaseLayout title="Kubernetes as a Service">
+  <Hero />
+
+  <!-- Features -->
+  <section class="py-20 bg-secondary/30">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-center text-3xl font-bold text-foreground">{t("home.features.title")}</h2>
+      <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {features.map((feature) => (
+          <div class="rounded-lg border border-border bg-card p-6 shadow-sm">
+            <h3 class="text-lg font-semibold text-foreground">{feature.title}</h3>
+            <p class="mt-2 text-sm text-muted-foreground">{feature.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20">
+    <div class="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-foreground">{t("home.cta.title")}</h2>
+      <p class="mt-4 text-lg text-muted-foreground">{t("home.cta.subtitle")}</p>
+      <a
+        href="https://app.deployme.cloud"
+        class="mt-8 inline-block rounded-md bg-primary px-8 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
+      >
+        {t("home.cta.button")}
+      </a>
+    </div>
+  </section>
+</BaseLayout>

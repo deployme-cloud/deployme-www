@@ -1,0 +1,85 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations, getLocalizedPath } from "@/i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const plans = [
+  {
+    title: t("pricing.community.title"),
+    price: t("pricing.community.price"),
+    desc: t("pricing.community.desc"),
+    features: t("pricing.community.features"),
+    cta: t("pricing.cta"),
+    href: "https://app.deployme.cloud",
+    highlighted: false,
+  },
+  {
+    title: t("pricing.pro.title"),
+    price: t("pricing.pro.price"),
+    desc: t("pricing.pro.desc"),
+    features: t("pricing.pro.features"),
+    cta: t("pricing.cta"),
+    href: "https://app.deployme.cloud",
+    highlighted: true,
+  },
+  {
+    title: t("pricing.enterprise.title"),
+    price: t("pricing.enterprise.price"),
+    desc: t("pricing.enterprise.desc"),
+    features: t("pricing.enterprise.features"),
+    cta: t("pricing.contact"),
+    href: getLocalizedPath(lang, "/contact"),
+    highlighted: false,
+  },
+];
+---
+
+<BaseLayout title={t("pricing.title") as string}>
+  <section class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-bold text-foreground">{t("pricing.title")}</h1>
+        <p class="mt-4 text-lg text-muted-foreground">{t("pricing.subtitle")}</p>
+      </div>
+
+      <div class="mt-16 grid gap-8 lg:grid-cols-3">
+        {plans.map((plan) => (
+          <div
+            class:list={[
+              "flex flex-col rounded-lg border p-8 shadow-sm",
+              plan.highlighted
+                ? "border-primary bg-card ring-2 ring-primary"
+                : "border-border bg-card",
+            ]}
+          >
+            <h3 class="text-lg font-semibold text-foreground">{plan.title}</h3>
+            <p class="mt-2 text-3xl font-bold text-foreground">{plan.price}</p>
+            <p class="mt-2 text-sm text-muted-foreground">{plan.desc}</p>
+            <ul class="mt-6 flex-1 space-y-3">
+              {Array.isArray(plan.features) &&
+                (plan.features as string[]).map((feature: string) => (
+                  <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                    <span class="mt-0.5 text-primary">&#10003;</span>
+                    {feature}
+                  </li>
+                ))}
+            </ul>
+            <a
+              href={plan.href}
+              class:list={[
+                "mt-8 block rounded-md px-4 py-2 text-center text-sm font-semibold transition-colors",
+                plan.highlighted
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                  : "border border-border bg-background text-foreground hover:bg-secondary",
+              ]}
+            >
+              {plan.cta}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

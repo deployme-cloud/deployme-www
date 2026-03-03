@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@import "./brand-colors.css";
+
+@theme {
+  /* Brand-aligned colors */
+  --color-primary: var(--dm-blue-600);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--dm-gray-100);
+  --color-secondary-foreground: var(--dm-gray-900);
+  --color-accent: var(--dm-blue-500);
+  --color-accent-foreground: #ffffff;
+  --color-muted: var(--dm-gray-100);
+  --color-muted-foreground: var(--dm-gray-500);
+  --color-background: #ffffff;
+  --color-foreground: var(--dm-gray-900);
+  --color-card: #ffffff;
+  --color-card-foreground: var(--dm-gray-900);
+  --color-border: var(--dm-gray-200);
+  --color-ring: var(--dm-blue-600);
+  --color-destructive: var(--dm-red-500);
+  --color-destructive-foreground: #ffffff;
+  --radius-lg: 0.5rem;
+  --radius-md: 0.375rem;
+  --radius-sm: 0.25rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}

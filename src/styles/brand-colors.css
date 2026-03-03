@@ -1,0 +1,56 @@
+/*
+ * Deployme.cloud — Color Palette
+ * Usage: import this file or copy the CSS variables into your project.
+ */
+
+:root {
+  /* ─── Primary (Blue) ─── */
+  --dm-blue-50:  #EFF6FF;
+  --dm-blue-100: #DBEAFE;
+  --dm-blue-200: #BFDBFE;
+  --dm-blue-300: #93C5FD;
+  --dm-blue-400: #60A5FA;
+  --dm-blue-500: #3B82F6;  /* Main brand color */
+  --dm-blue-600: #2563EB;
+  --dm-blue-700: #1D4ED8;
+  --dm-blue-800: #1E40AF;
+  --dm-blue-900: #1E3A5F;  /* Dark background accent */
+
+  /* ─── Neutral (Gray) ─── */
+  --dm-gray-50:  #F9FAFB;
+  --dm-gray-100: #F3F4F6;
+  --dm-gray-200: #E5E7EB;
+  --dm-gray-300: #D1D5DB;
+  --dm-gray-400: #9CA3AF;
+  --dm-gray-500: #6B7280;
+  --dm-gray-600: #4B5563;
+  --dm-gray-700: #374151;
+  --dm-gray-800: #1F2937;
+  --dm-gray-900: #111827;
+
+  /* ─── Accent (Green — success, deploy done) ─── */
+  --dm-green-400: #4ADE80;
+  --dm-green-500: #22C55E;
+  --dm-green-600: #16A34A;
+
+  /* ─── Warning (Amber) ─── */
+  --dm-amber-400: #FBBF24;
+  --dm-amber-500: #F59E0B;
+
+  /* ─── Error (Red) ─── */
+  --dm-red-400: #F87171;
+  --dm-red-500: #EF4444;
+  --dm-red-600: #DC2626;
+
+  /* ─── Semantic aliases ─── */
+  --dm-brand:      var(--dm-blue-500);
+  --dm-brand-dark: var(--dm-blue-700);
+  --dm-bg-light:   var(--dm-gray-50);
+  --dm-bg-dark:    var(--dm-gray-900);
+  --dm-text-light: var(--dm-gray-50);
+  --dm-text-dark:  var(--dm-gray-900);
+  --dm-text-muted: var(--dm-gray-500);
+  --dm-success:    var(--dm-green-500);
+  --dm-warning:    var(--dm-amber-500);
+  --dm-error:      var(--dm-red-500);
+}

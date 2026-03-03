@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const freeItems = t("training.free.items");
+const proItems = t("training.pro.items");
+---
+
+<BaseLayout title={t("training.title") as string}>
+  <section class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-4xl font-bold text-foreground">{t("training.title")}</h1>
+        <p class="mt-4 text-lg text-muted-foreground">{t("training.subtitle")}</p>
+      </div>
+
+      <div class="mt-16 grid gap-8 md:grid-cols-2">
+        <div class="rounded-lg border border-border bg-card p-8 shadow-sm">
+          <h2 class="text-xl font-bold text-foreground">{t("training.free.title")}</h2>
+          <ul class="mt-6 space-y-3">
+            {Array.isArray(freeItems) &&
+              (freeItems as string[]).map((item: string) => (
+                <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span class="mt-0.5 text-primary">&#10003;</span>
+                  {item}
+                </li>
+              ))}
+          </ul>
+        </div>
+
+        <div class="rounded-lg border border-primary bg-card p-8 shadow-sm ring-2 ring-primary">
+          <h2 class="text-xl font-bold text-foreground">{t("training.pro.title")}</h2>
+          <ul class="mt-6 space-y-3">
+            {Array.isArray(proItems) &&
+              (proItems as string[]).map((item: string) => (
+                <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span class="mt-0.5 text-primary">&#10003;</span>
+                  {item}
+                </li>
+              ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

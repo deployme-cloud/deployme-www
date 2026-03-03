@@ -1,0 +1,49 @@
+---
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+import { getLangFromUrl, useTranslations, getLocalizedPath } from "@/i18n/translations";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navLinks = [
+  { href: getLocalizedPath(lang, "/"), label: t("nav.home") },
+  { href: getLocalizedPath(lang, "/product"), label: t("nav.product") },
+  { href: getLocalizedPath(lang, "/pricing"), label: t("nav.pricing") },
+  { href: getLocalizedPath(lang, "/training"), label: t("nav.training") },
+  { href: getLocalizedPath(lang, "/blog"), label: t("nav.blog") },
+  { href: getLocalizedPath(lang, "/about"), label: t("nav.about") },
+  { href: getLocalizedPath(lang, "/contact"), label: t("nav.contact") },
+  { href: "https://docs.deployme.cloud", label: t("nav.docs") },
+];
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <a href={getLocalizedPath(lang, "/")} class="flex items-center gap-2 text-xl font-bold text-foreground">
+      Deployme<span class="text-primary">.cloud</span>
+    </a>
+
+    <nav class="hidden items-center gap-6 md:flex">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          target={link.href.startsWith("http") ? "_blank" : undefined}
+          rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-4">
+      <LanguageSwitcher />
+      <a
+        href="https://app.deployme.cloud"
+        class="hidden rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 sm:inline-flex"
+      >
+        {t("nav.getStarted")}
+      </a>
+    </div>
+  </div>
+</header>
