@@ -40,7 +40,10 @@ const t = useTranslations(lang);
     </div>
     <div class="mt-8 border-t border-border pt-8">
       <div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
-        <p class="text-sm text-muted-foreground">{t("footer.tagline")}</p>
+        <div class="flex items-center gap-3">
+          <img src="/brand/deployme-icon-rounded.svg" alt="Deployme.cloud" class="h-6 w-6" />
+          <p class="text-sm text-muted-foreground">{t("footer.tagline")}</p>
+        </div>
         <p class="text-sm text-muted-foreground">{t("footer.copyright")}</p>
       </div>
     </div>
