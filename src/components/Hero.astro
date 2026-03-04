@@ -8,7 +8,8 @@ const t = useTranslations(lang);
 <section class="relative overflow-hidden py-20 sm:py-32">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-3xl text-center">
-      <img src="/brand/deployme-logo-full-light.svg" alt="Deployme.cloud" class="mx-auto mb-8 h-16 sm:h-20" />
+      <img src="/brand/deployme-logo-full-light.svg" alt="Deployme.cloud" class="mx-auto mb-8 h-16 sm:h-20 dark:hidden" />
+      <img src="/brand/deployme-logo-full-dark.svg" alt="Deployme.cloud" class="mx-auto mb-8 hidden h-16 sm:h-20 dark:block" />
       <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
         {t("home.hero.title")}
       </h1>

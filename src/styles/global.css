@@ -1,8 +1,10 @@
 @import "tailwindcss";
 @import "./brand-colors.css";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
-  /* Brand-aligned colors */
+  /* Light mode (default) */
   --color-primary: var(--dm-blue-600);
   --color-primary-foreground: #ffffff;
   --color-secondary: var(--dm-gray-100);
@@ -24,8 +26,28 @@
   --radius-sm: 0.25rem;
 }
 
+/* Dark mode overrides */
+.dark {
+  --color-primary: var(--dm-blue-500);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--dm-gray-800);
+  --color-secondary-foreground: var(--dm-gray-100);
+  --color-accent: var(--dm-blue-400);
+  --color-accent-foreground: #ffffff;
+  --color-muted: var(--dm-gray-800);
+  --color-muted-foreground: var(--dm-gray-400);
+  --color-background: var(--dm-gray-900);
+  --color-foreground: var(--dm-gray-50);
+  --color-card: var(--dm-gray-800);
+  --color-card-foreground: var(--dm-gray-50);
+  --color-border: var(--dm-gray-700);
+  --color-ring: var(--dm-blue-500);
+  --color-destructive: var(--dm-red-400);
+  --color-destructive-foreground: #ffffff;
+}
+
 @layer base {
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-background text-foreground antialiased transition-colors duration-200;
   }
 }

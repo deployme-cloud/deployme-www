@@ -148,6 +148,9 @@ export const translations = {
       "Deployme Certified program",
     ],
 
+    // Theme
+    "theme.toggle": "Toggle theme",
+
     // Footer
     "footer.tagline": "Kubernetes on any infrastructure, in minutes.",
     "footer.product": "Product",
@@ -172,47 +175,47 @@ export const translations = {
     "nav.getStarted": "Commencer",
 
     // Homepage
-    "home.hero.title": "Déployez des Clusters Kubernetes en Minutes",
+    "home.hero.title": "Déployez vos clusters Kubernetes en quelques minutes",
     "home.hero.subtitle":
       "La plateforme open-core pour provisionner des clusters Talos Linux sur n'importe quelle infrastructure — cloud, on-premise ou bare-metal.",
-    "home.hero.cta": "Déployer Mon Premier Cluster",
-    "home.hero.secondary": "Voir la Documentation",
+    "home.hero.cta": "Déployer mon premier cluster",
+    "home.hero.secondary": "Voir la documentation",
     "home.features.title": "Pourquoi Deployme ?",
     "home.features.simple.title": "Simple",
     "home.features.simple.desc":
-      "Déployez un cluster Kubernetes prêt pour la production en moins de 10 minutes. Aucun doctorat requis.",
+      "Déployez un cluster Kubernetes prêt pour la production en moins de 10 minutes. Aucune expertise requise.",
     "home.features.secure.title": "Sécurisé",
     "home.features.secure.desc":
-      "Basé sur Talos Linux — un OS immuable sans SSH, sans shell, surface d'attaque minimale.",
+      "Basé sur Talos Linux — un OS immuable, sans SSH, sans shell, avec une surface d'attaque minimale.",
     "home.features.flexible.title": "Flexible",
     "home.features.flexible.desc":
-      "Votre infrastructure, vos règles. KVM, VMware, Proxmox, bare-metal — nous les supportons tous.",
+      "Votre infrastructure, vos règles. KVM, VMware, Proxmox, bare-metal — on s'adapte à tout.",
     "home.features.open.title": "Ouvert",
     "home.features.open.desc":
       "Modèle open-core. SDK, Terraform, Ansible, CAPI — utilisez les outils que vous connaissez déjà.",
-    "home.cta.title": "Prêt à Commencer ?",
+    "home.cta.title": "Prêt à vous lancer ?",
     "home.cta.subtitle":
-      "Obtenez 20 heures gratuites par mois. Aucune carte bancaire requise.",
-    "home.cta.button": "Créer un Compte Gratuit",
+      "Profitez de 20 heures gratuites par mois. Aucune carte bancaire requise.",
+    "home.cta.button": "Créer un compte gratuit",
 
     // Product
     "product.title": "Produit",
     "product.subtitle":
       "Une plateforme unifiée pour provisionner des clusters Kubernetes sur n'importe quelle infrastructure.",
-    "product.phases.title": "Infrastructures Supportées",
-    "product.phase0.title": "Hébergement Managé",
+    "product.phases.title": "Infrastructures supportées",
+    "product.phase0.title": "Hébergement managé",
     "product.phase0.desc":
-      "Clusters KVM hébergés et opérés par Deployme. Zéro friction, prêt en minutes.",
+      "Clusters KVM hébergés et opérés par Deployme. Zéro friction, prêts en quelques minutes.",
     "product.phase1.title": "VMware / Proxmox",
     "product.phase1.desc":
       "Déployez sur votre infrastructure de virtualisation existante via un agent léger.",
-    "product.phase2.title": "Bare-Metal",
+    "product.phase2.title": "Bare-metal",
     "product.phase2.desc":
       "Démarrez vos serveurs physiques directement avec Talos Linux via PXE.",
     "product.phase3.title": "Incus / OpenStack",
     "product.phase3.desc":
       "Environnements cloud privé avancés avec des providers CAPI/Terraform dédiés.",
-    "product.tools.title": "Utilisez les Outils que Vous Connaissez",
+    "product.tools.title": "Utilisez les outils que vous connaissez",
     "product.tools.subtitle":
       "SDK (Go, Python, TypeScript), Provider Terraform, Collection Ansible, Cluster API, CLI.",
 
@@ -221,21 +224,21 @@ export const translations = {
     "pricing.subtitle": "Commencez gratuitement, évoluez à votre rythme.",
     "pricing.community.title": "Community",
     "pricing.community.price": "Gratuit",
-    "pricing.community.desc": "Pour les individus et petits projets",
+    "pricing.community.desc": "Pour les particuliers et les petits projets",
     "pricing.community.features": [
       "Clusters illimités (sur votre infra)",
       "SDK / Terraform / Ansible / CAPI",
       "Documentation complète",
-      "20h/mois de crédits hébergés gratuits",
+      "20 h/mois de crédits hébergés offerts",
       "Support communautaire",
     ],
     "pricing.pro.title": "Pro",
-    "pricing.pro.price": "À partir de 49€/mois",
-    "pricing.pro.desc": "Pour les équipes et charges de production",
+    "pricing.pro.price": "À partir de 49 €/mois",
+    "pricing.pro.desc": "Pour les équipes et les charges de production",
     "pricing.pro.features": [
-      "Tout le plan Community",
+      "Tout le plan Community inclus",
       "Hébergement managé",
-      "Support email (SLA 24h)",
+      "Support par email (SLA 24 h)",
       "Sessions live mensuelles",
       "SSO / OIDC",
     ],
@@ -243,11 +246,11 @@ export const translations = {
     "pricing.enterprise.price": "Sur devis",
     "pricing.enterprise.desc": "Pour les organisations aux besoins avancés",
     "pricing.enterprise.features": [
-      "Tout le plan Pro",
-      "SLA dédié (4h)",
+      "Tout le plan Pro inclus",
+      "SLA dédié (4 h)",
       "Canal Slack dédié",
       "Formation sur site",
-      "Audit & consulting",
+      "Audit & conseil",
       "Multi-tenancy avancé",
     ],
     "pricing.cta": "Commencer",
@@ -257,58 +260,61 @@ export const translations = {
     "blog.title": "Blog",
     "blog.subtitle":
       "Articles techniques, retours d'expérience et annonces.",
-    "blog.comingSoon": "Articles à venir. Restez connectés !",
+    "blog.comingSoon": "Les premiers articles arrivent bientôt. Restez connectés !",
 
     // About
-    "about.title": "À Propos",
+    "about.title": "À propos",
     "about.subtitle": "Notre mission : démocratiser Kubernetes.",
-    "about.vision.title": "Notre Vision",
+    "about.vision.title": "Notre vision",
     "about.vision.desc":
-      "Nous croyons que tout le monde devrait pouvoir déployer un cluster Kubernetes en quelques minutes, sur n'importe quelle infrastructure, sans expertise approfondie. Deployme.cloud rend cela possible avec Talos Linux et une approche open-core.",
-    "about.roadmap.title": "Roadmap",
+      "Nous pensons que tout le monde devrait pouvoir déployer un cluster Kubernetes en quelques minutes, sur n'importe quelle infrastructure, sans expertise pointue. Deployme.cloud rend cela possible grâce à Talos Linux et une approche open-core.",
+    "about.roadmap.title": "Feuille de route",
     "about.roadmap.items": [
       "2025 S1 — Phase 0 + Phase 1 (MVP → GA)",
       "2025 S2 — Phase 2 (Bare-metal) + Marketplace d'add-ons",
       "2026 S1 — Phase 3 (Incus/OpenStack) + Certification",
-      "2026 S2 — Multi-cloud (AWS/GCP/Azure cible optionnelle)",
+      "2026 S2 — Multi-cloud (AWS/GCP/Azure, cible optionnelle)",
     ],
 
     // Contact
     "contact.title": "Contact",
     "contact.subtitle":
-      "Une question ? Nous serions ravis de vous entendre.",
+      "Une question ? N'hésitez pas à nous écrire.",
     "contact.form.name": "Nom",
     "contact.form.email": "Email",
     "contact.form.message": "Message",
-    "contact.form.submit": "Envoyer le Message",
+    "contact.form.submit": "Envoyer",
 
     // Training
     "training.title": "Formation",
     "training.subtitle":
-      "Apprenez Kubernetes avec Talos Linux — cours gratuits et workshops professionnels.",
-    "training.free.title": "Ressources Gratuites",
+      "Apprenez Kubernetes avec Talos Linux — ressources gratuites et formations professionnelles.",
+    "training.free.title": "Ressources gratuites",
     "training.free.items": [
       "Documentation complète",
       "Tutoriels vidéo",
       "Labs interactifs",
       "Parcours d'apprentissage progressifs",
     ],
-    "training.pro.title": "Formation Professionnelle",
+    "training.pro.title": "Formation professionnelle",
     "training.pro.items": [
       "Sessions live mensuelles (plan Pro)",
       "Formation sur site (Enterprise)",
       "Programme certifiant Deployme",
     ],
 
+    // Theme
+    "theme.toggle": "Changer de thème",
+
     // Footer
     "footer.tagline":
-      "Kubernetes sur n'importe quelle infrastructure, en minutes.",
+      "Kubernetes sur n'importe quelle infrastructure, en quelques minutes.",
     "footer.product": "Produit",
     "footer.resources": "Ressources",
     "footer.company": "Entreprise",
-    "footer.legal": "Légal",
-    "footer.privacy": "Politique de Confidentialité",
-    "footer.terms": "Conditions d'Utilisation",
+    "footer.legal": "Mentions légales",
+    "footer.privacy": "Politique de confidentialité",
+    "footer.terms": "Conditions d'utilisation",
     "footer.copyright": "© 2025 Deployme.cloud. Tous droits réservés.",
   },
 } as const;
