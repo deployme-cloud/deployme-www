@@ -6,3 +6,5 @@ dist/
 !.env.example
 .netlify/
 .DS_Store
+.pnpm-store/
+pnpm-lock.yaml

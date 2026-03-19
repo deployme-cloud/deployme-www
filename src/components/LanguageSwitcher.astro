@@ -11,14 +11,14 @@ function getTargetPath(targetLang: string): string {
 }
 ---
 
-<div class="flex items-center gap-1 text-sm">
+<div class="flex items-center gap-0.5 text-sm">
   {Object.entries(languages).map(([code, label]) => (
     <a
       href={getTargetPath(code)}
       class:list={[
-        "rounded px-2 py-1 transition-colors",
+        "rounded-md px-2 py-1 text-xs transition-colors",
         code === lang
-          ? "bg-primary/10 font-semibold text-primary"
+          ? "bg-muted font-semibold text-foreground"
           : "text-muted-foreground hover:text-foreground",
       ]}
     >

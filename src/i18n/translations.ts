@@ -15,7 +15,6 @@ export const translations = {
     "nav.pricing": "Pricing",
     "nav.blog": "Blog",
     "nav.about": "About",
-    "nav.contact": "Contact",
     "nav.training": "Training",
     "nav.docs": "Docs",
     "nav.getStarted": "Get Started",
@@ -122,14 +121,6 @@ export const translations = {
       "2026 H2 — Multi-cloud (AWS/GCP/Azure optional target)",
     ],
 
-    // Contact
-    "contact.title": "Contact",
-    "contact.subtitle": "Have a question? We'd love to hear from you.",
-    "contact.form.name": "Name",
-    "contact.form.email": "Email",
-    "contact.form.message": "Message",
-    "contact.form.submit": "Send Message",
-
     // Training
     "training.title": "Training",
     "training.subtitle":
@@ -169,7 +160,6 @@ export const translations = {
     "nav.pricing": "Tarifs",
     "nav.blog": "Blog",
     "nav.about": "À propos",
-    "nav.contact": "Contact",
     "nav.training": "Formation",
     "nav.docs": "Docs",
     "nav.getStarted": "Commencer",
@@ -275,15 +265,6 @@ export const translations = {
       "2026 S1 — Phase 3 (Incus/OpenStack) + Certification",
       "2026 S2 — Multi-cloud (AWS/GCP/Azure, cible optionnelle)",
     ],
-
-    // Contact
-    "contact.title": "Contact",
-    "contact.subtitle":
-      "Une question ? N'hésitez pas à nous écrire.",
-    "contact.form.name": "Nom",
-    "contact.form.email": "Email",
-    "contact.form.message": "Message",
-    "contact.form.submit": "Envoyer",
 
     // Training
     "training.title": "Formation",

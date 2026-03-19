@@ -7,29 +7,27 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const navLinks = [
-  { href: getLocalizedPath(lang, "/"), label: t("nav.home") },
   { href: getLocalizedPath(lang, "/product"), label: t("nav.product") },
   { href: getLocalizedPath(lang, "/pricing"), label: t("nav.pricing") },
   { href: getLocalizedPath(lang, "/training"), label: t("nav.training") },
   { href: getLocalizedPath(lang, "/blog"), label: t("nav.blog") },
   { href: getLocalizedPath(lang, "/about"), label: t("nav.about") },
-  { href: getLocalizedPath(lang, "/contact"), label: t("nav.contact") },
   { href: "https://docs.deployme.cloud", label: t("nav.docs") },
 ];
 ---
 
-<header class="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-    <a href={getLocalizedPath(lang, "/")} class="flex items-center">
-      <img src="/brand/deployme-logo-horizontal-light.svg" alt="Deployme.cloud" class="h-8 dark:hidden" />
-      <img src="/brand/deployme-logo-horizontal-dark.svg" alt="Deployme.cloud" class="hidden h-8 dark:block" />
+<header class="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <a href={getLocalizedPath(lang, "/")} class="flex items-center gap-2">
+      <img src="/brand/deployme-icon-rounded.svg" alt="" class="h-7 w-7" />
+      <span class="text-lg font-semibold tracking-tight text-foreground" style="font-family: var(--font-heading)">deployme</span>
     </a>
 
-    <nav class="hidden items-center gap-6 md:flex">
+    <nav class="hidden items-center gap-1 md:flex">
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+          class="rounded-md px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
           target={link.href.startsWith("http") ? "_blank" : undefined}
           rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
         >
@@ -38,38 +36,38 @@ const navLinks = [
       ))}
     </nav>
 
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-1.5">
       <ThemeToggle />
       <LanguageSwitcher />
       <a
         href="https://app.deployme.cloud"
-        class="hidden rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 sm:inline-flex"
+        class="hidden rounded-lg bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-all hover:brightness-110 sm:inline-flex"
       >
         {t("nav.getStarted")}
       </a>
       <button
         id="mobile-menu-button"
         type="button"
-        class="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:bg-accent hover:text-foreground md:hidden"
+        class="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground hover:bg-muted hover:text-foreground md:hidden"
         aria-expanded="false"
         aria-label="Toggle menu"
       >
-        <svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <svg id="menu-icon-open" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
-        <svg id="menu-icon-close" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+        <svg id="menu-icon-close" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
     </div>
   </div>
 
-  <div id="mobile-menu" class="hidden border-t border-border md:hidden">
-    <nav class="mx-auto max-w-7xl space-y-1 px-4 pb-4 pt-2 sm:px-6 lg:px-8">
+  <div id="mobile-menu" class="hidden border-t border-border/50 md:hidden">
+    <nav class="mx-auto max-w-6xl space-y-1 px-4 pb-4 pt-2 sm:px-6">
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="block rounded-md px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+          class="block rounded-md px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
           target={link.href.startsWith("http") ? "_blank" : undefined}
           rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
         >
@@ -78,7 +76,7 @@ const navLinks = [
       ))}
       <a
         href="https://app.deployme.cloud"
-        class="mt-2 block rounded-md bg-primary px-3 py-2 text-center text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        class="mt-2 block rounded-lg bg-accent px-3 py-2.5 text-center text-sm font-medium text-accent-foreground transition-all hover:brightness-110"
       >
         {t("nav.getStarted")}
       </a>

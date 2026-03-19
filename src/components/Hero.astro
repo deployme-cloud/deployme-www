@@ -5,31 +5,56 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="relative overflow-hidden py-20 sm:py-32">
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="mx-auto max-w-3xl text-center">
-      <img src="/brand/deployme-logo-full-light.svg" alt="Deployme.cloud" class="mx-auto mb-8 h-16 sm:h-20 dark:hidden" />
-      <img src="/brand/deployme-logo-full-dark.svg" alt="Deployme.cloud" class="mx-auto mb-8 hidden h-16 sm:h-20 dark:block" />
-      <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-        {t("home.hero.title")}
-      </h1>
-      <p class="mt-6 text-lg leading-8 text-muted-foreground">
-        {t("home.hero.subtitle")}
-      </p>
-      <div class="mt-10 flex items-center justify-center gap-4">
-        <a
-          href="https://app.deployme.cloud"
-          class="rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-sm transition-colors hover:bg-primary/90"
-        >
-          {t("home.hero.cta")}
-        </a>
-        <a
-          href="https://docs.deployme.cloud"
-          class="rounded-md border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-secondary"
-        >
-          {t("home.hero.secondary")}
-        </a>
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--dm-green-50)_0%,transparent_50%)] dark:bg-[radial-gradient(ellipse_at_top,var(--dm-green-500)/5%_0%,transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,var(--dm-slate-100)_0%,transparent_50%)] dark:bg-[radial-gradient(circle_at_80%_20%,var(--dm-slate-800)/20%_0%,transparent_50%)]"></div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 pb-24 pt-20 sm:px-6 sm:pb-32 sm:pt-28 lg:px-8">
+    <div class="mx-auto max-w-3xl">
+      <div class="animate-fade-in">
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-muted/50 px-3 py-1 text-xs font-medium text-muted-foreground">
+          <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
+          Open-core &middot; Talos Linux &middot; Any infrastructure
+        </div>
+
+        <h1 class="text-4xl font-bold leading-[1.1] tracking-tight text-foreground sm:text-5xl lg:text-6xl" style="font-family: var(--font-heading)">
+          {t("home.hero.title")}
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+          {t("home.hero.subtitle")}
+        </p>
+
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a
+            href="https://app.deployme.cloud"
+            class="inline-flex items-center justify-center rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-all hover:brightness-110"
+          >
+            {t("home.hero.cta")}
+            <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+          <a
+            href="https://docs.deployme.cloud"
+            class="inline-flex items-center justify-center rounded-lg border border-border px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+          >
+            {t("home.hero.secondary")}
+          </a>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out both;
+  }
+</style>

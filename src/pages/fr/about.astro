@@ -9,29 +9,45 @@ const roadmapItems = t("about.roadmap.items");
 ---
 
 <BaseLayout title={t("about.title") as string}>
-  <section class="py-20">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-3xl text-center">
-        <h1 class="text-4xl font-bold text-foreground">{t("about.title")}</h1>
-        <p class="mt-4 text-lg text-muted-foreground">{t("about.subtitle")}</p>
+  <section class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl" style="font-family: var(--font-heading)">
+          {t("about.title")}
+        </h1>
+        <p class="mt-6 text-lg text-muted-foreground">{t("about.subtitle")}</p>
       </div>
+    </div>
+  </section>
 
-      <div class="mt-16 mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-foreground">{t("about.vision.title")}</h2>
-        <p class="mt-4 text-muted-foreground leading-relaxed">{t("about.vision.desc")}</p>
+  <section class="border-t border-border/50 bg-muted/30 py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl" style="font-family: var(--font-heading)">
+          {t("about.vision.title")}
+        </h2>
+        <p class="mt-6 text-base leading-relaxed text-muted-foreground">{t("about.vision.desc")}</p>
       </div>
+    </div>
+  </section>
 
-      <div class="mt-16 mx-auto max-w-3xl">
-        <h2 class="text-2xl font-bold text-foreground">{t("about.roadmap.title")}</h2>
-        <ul class="mt-6 space-y-4">
+  <section class="py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl" style="font-family: var(--font-heading)">
+          {t("about.roadmap.title")}
+        </h2>
+        <div class="mt-8 space-y-3">
           {Array.isArray(roadmapItems) &&
-            (roadmapItems as string[]).map((item: string) => (
-              <li class="flex items-start gap-3 rounded-lg border border-border bg-card p-4 shadow-sm">
-                <span class="mt-0.5 text-primary">&#9654;</span>
-                <span class="text-sm text-muted-foreground">{item}</span>
-              </li>
+            (roadmapItems as string[]).map((item: string, i: number) => (
+              <div class="flex items-start gap-4 rounded-xl border border-border/50 bg-card p-5 transition-all duration-200 hover:border-border hover:shadow-sm">
+                <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/10 font-mono text-xs font-bold text-accent">
+                  {i + 1}
+                </div>
+                <span class="text-sm leading-relaxed text-muted-foreground">{item}</span>
+              </div>
             ))}
-        </ul>
+        </div>
       </div>
     </div>
   </section>

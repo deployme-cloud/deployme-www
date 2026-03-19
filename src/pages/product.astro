@@ -6,48 +6,72 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const phases = [
-  { title: t("product.phase0.title"), desc: t("product.phase0.desc"), badge: "Phase 0" },
-  { title: t("product.phase1.title"), desc: t("product.phase1.desc"), badge: "Phase 1" },
-  { title: t("product.phase2.title"), desc: t("product.phase2.desc"), badge: "Phase 2" },
-  { title: t("product.phase3.title"), desc: t("product.phase3.desc"), badge: "Phase 3" },
+  { title: t("product.phase0.title"), desc: t("product.phase0.desc"), badge: "Phase 0", status: "GA" },
+  { title: t("product.phase1.title"), desc: t("product.phase1.desc"), badge: "Phase 1", status: "GA" },
+  { title: t("product.phase2.title"), desc: t("product.phase2.desc"), badge: "Phase 2", status: "Soon" },
+  { title: t("product.phase3.title"), desc: t("product.phase3.desc"), badge: "Phase 3", status: "Planned" },
 ];
+
+const tools = ["Go SDK", "Python SDK", "TypeScript SDK", "Terraform", "Ansible", "CAPI", "CLI"];
 ---
 
 <BaseLayout title={t("product.title") as string}>
-  <section class="py-20">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-3xl text-center">
-        <h1 class="text-4xl font-bold text-foreground">{t("product.title")}</h1>
-        <p class="mt-4 text-lg text-muted-foreground">{t("product.subtitle")}</p>
+  <!-- Hero -->
+  <section class="py-20 sm:py-28">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl">
+        <h1 class="text-4xl font-bold tracking-tight text-foreground sm:text-5xl" style="font-family: var(--font-heading)">
+          {t("product.title")}
+        </h1>
+        <p class="mt-6 text-lg leading-relaxed text-muted-foreground">{t("product.subtitle")}</p>
       </div>
+    </div>
+  </section>
 
-      <!-- Phases -->
-      <div class="mt-16">
-        <h2 class="text-center text-2xl font-bold text-foreground">{t("product.phases.title")}</h2>
-        <div class="mt-8 grid gap-6 sm:grid-cols-2">
-          {phases.map((phase) => (
-            <div class="rounded-lg border border-border bg-card p-6 shadow-sm">
-              <span class="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+  <!-- Phases -->
+  <section class="border-t border-border/50 bg-muted/30 py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl" style="font-family: var(--font-heading)">
+        {t("product.phases.title")}
+      </h2>
+
+      <div class="mt-12 grid gap-4 sm:grid-cols-2">
+        {phases.map((phase) => (
+          <div class="group rounded-xl border border-border/50 bg-card p-6 transition-all duration-200 hover:border-border hover:shadow-sm">
+            <div class="flex items-center gap-3">
+              <span class="inline-flex items-center rounded-md bg-muted px-2.5 py-1 text-xs font-mono font-medium text-muted-foreground">
                 {phase.badge}
               </span>
-              <h3 class="mt-3 text-lg font-semibold text-foreground">{phase.title}</h3>
-              <p class="mt-2 text-sm text-muted-foreground">{phase.desc}</p>
+              <span class:list={[
+                "inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider",
+                phase.status === "GA" ? "bg-accent/10 text-accent" : "bg-muted text-muted-foreground",
+              ]}>
+                {phase.status}
+              </span>
             </div>
-          ))}
-        </div>
+            <h3 class="mt-4 text-lg font-semibold text-foreground">{phase.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{phase.desc}</p>
+          </div>
+        ))}
       </div>
+    </div>
+  </section>
 
-      <!-- Tools -->
-      <div class="mt-16 text-center">
-        <h2 class="text-2xl font-bold text-foreground">{t("product.tools.title")}</h2>
+  <!-- Tools -->
+  <section class="py-24">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-2xl font-bold tracking-tight text-foreground sm:text-3xl" style="font-family: var(--font-heading)">
+          {t("product.tools.title")}
+        </h2>
         <p class="mt-4 text-muted-foreground">{t("product.tools.subtitle")}</p>
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-          {["Go SDK", "Python SDK", "TypeScript SDK", "Terraform", "Ansible", "CAPI", "CLI"].map((tool) => (
-            <span class="rounded-full border border-border bg-secondary px-4 py-2 text-sm font-medium text-foreground">
-              {tool}
-            </span>
-          ))}
-        </div>
+      </div>
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-3">
+        {tools.map((tool) => (
+          <span class="rounded-lg border border-border/50 bg-card px-4 py-2.5 text-sm font-mono font-medium text-foreground transition-colors hover:border-border">
+            {tool}
+          </span>
+        ))}
       </div>
     </div>
   </section>
