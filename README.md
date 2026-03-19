@@ -9,6 +9,15 @@ Site vitrine public de **deployme.cloud** — Kubernetes as a Service.
 - [shadcn/ui](https://ui.shadcn.com) — Composants UI (React)
 - [MDX](https://mdxjs.com) — Contenu riche
 - i18n natif Astro (EN/FR)
+- Typographies : Space Grotesk (titres) + DM Sans (corps) via Google Fonts
+
+## Design
+
+Palette sobre sans bleu, inspiree du skill [UI UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) :
+
+- **Style** : Swiss Minimalism — grilles, contraste, sobriete
+- **Couleurs** : Slate/neutral + accent vert (`#22C55E`)
+- **Dark mode** : activable, persiste dans localStorage
 
 ## Demarrage
 
@@ -21,6 +30,10 @@ pnpm dev
 
 # Build statique
 pnpm build
+
+# Build via Docker (rootless)
+docker run --rm -v "$(pwd)":/app -w /app node:22-slim \
+  sh -c "corepack enable && corepack prepare pnpm@9.15.4 --activate && pnpm install && pnpm build"
 
 # Preview du build
 pnpm preview
@@ -35,8 +48,8 @@ src/
 ├── layouts/        # Layout de base
 ├── lib/            # Utilitaires (cn, etc.)
 ├── pages/          # Pages EN (racine) + FR (sous /fr/)
-├── styles/         # CSS global (Tailwind)
-public/             # Assets statiques
+├── styles/         # CSS global + brand colors
+public/             # Assets statiques (logos, favicon)
 ```
 
 ## Pages
@@ -48,10 +61,14 @@ public/             # Assets statiques
 | Tarifs | `/pricing` | `/fr/pricing` |
 | Blog | `/blog` | `/fr/blog` |
 | A propos | `/about` | `/fr/about` |
-| Contact | `/contact` | `/fr/contact` |
 | Formation | `/training` | `/fr/training` |
 | Docs | `/docs` | Redirect -> docs.deployme.cloud |
 
 ## Deploiement
 
-Netlify (auto-deploy sur push `main`). Config dans `netlify.toml`.
+Netlify — config dans `netlify.toml`.
+
+| Branche | URL | Role |
+|---------|-----|------|
+| `main` | deployme.cloud | Production |
+| `v1` | `v1--<site>.netlify.app` | Preview refonte |
